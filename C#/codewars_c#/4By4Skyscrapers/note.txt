@@ -1,0 +1,94 @@
+﻿/*
+ Egy 4x4-es négyzetekből álló rácsban minden négyzetbe el kell helyezni egy felhőkarcolót, néhány tipp segítségével:
+
+A felhőkarcolók magassága 1 és 4 között van.
+Egy sorban vagy oszlopban egyetlen két felhőkarcolónak sem lehet azonos számú emelete.
+Egy tipp a sorban vagy oszlopban kívülről látható felhőkarcolók száma.
+A magasabb felhőkarcolók eltakarják a mögöttük található alacsonyabb felhőkarcolók látványát.
+
+Tudsz írni egy programot, ami megoldja ezt a rejtvényt?
+A rejtvény működésének megértéséhez íme egy példa egy sorra, amelyben 2 utalás van. 
+Bal oldalról nézve 4 épület látható, míg jobb oldalról csak 1:
+
+        +-----+-----+-----+-----+
+     4  |     |     |     |     |  1
+        +-----+-----+-----+-----+
+
+A felhőkarcolókat csak egyetlen módon lehet elhelyezni. Balról jobbra mind a négy épületnek láthatónak kell lennie, 
+és egyetlen épület sem bújhat el egy másik épület mögé:
+
+        +-----+-----+-----+-----+
+     4  |  1  |  2  |  3  |  4  | 1
+        +-----+-----+-----+-----+
+
+Példa 4X4
+
+                        1   2   
+        +-----+-----+-----+-----+
+        |     |     |     |     |
+        +-----+-----+-----+-----+
+        |     |     |     |     | 2
+        +-----+-----+-----+-----+
+    1   |     |     |     |     |
+        +-----+-----+-----+-----+
+        |     |     |     |     |
+        +-----+-----+-----+-----+
+                        3
+
+Megoldás
+        +-----+-----+-----+-----+
+        |  2  |   1 | 4   |  3  |
+        +-----+-----+-----+-----+
+        |  3  |   4 |  1  |  2  |
+        +-----+-----+-----+-----+
+        |  4  |   2 |  3  |   1 |
+        +-----+-----+-----+-----+
+        |  1  |   3 |   2 |  4  |
+        +-----+-----+-----+-----+
+
+Az eregményt egy 16 elemű tömbben kell átadni, ami
+
+            0   1       2   3
+        +-----+-----+-----+-----+
+        |     |     |     |     |   4
+        +-----+-----+-----+-----+
+        |     |     |     |     |
+        +-----+-----+-----+-----+
+        |     |     |     |     |
+        +-----+-----+-----+-----+
+    12  |     |     |     |     |
+        +-----+-----+-----+-----+
+                        9    8
+
+Ha nincs elérhető tipp, adj hozzá `0` értéket.
+Minden rejtvénynek csak egy lehetséges megoldása van.
+A `SolvePuzzle()` függvény az `int[][]` mátrixot adja vissza. Az első indexelő a sorhoz, a második az oszlophoz tartozik. 
+(Python: 4-ből 4-es tuple-t ad vissza, Ruby: 4-ből 4-tömbből álló 4-tömböt ad vissza.)
+
+
+A “4 By 4 Skyscrapers” feladat a következő:
+
+Adott egy 4×4-es rács, mindegyik mezőbe épületeket kell elhelyezni, magasságuk 1–4 között változhat.
+Minden sorban és oszlopban pontosan egyszer szerepeljen minden magasság (ez latin négyzet szabály).
+A rács külsején vannak „clue”-ok (1–4 vagy 0, ha nincs megadva), amelyek azt jelzik, hogy az adott irányból nézve hány épület látható—mivel a magasabb épületek eltakarják az előtte levő kisebbeket.
+A cél: a darabszámnak pontosan meg kell egyeznie a clue értékével, amennyiben az nem 0.
+
+Példa: Ha egy sorhoz a bal oldalon “2” clue van, akkor a sorban balról olyan építési magasságok legyenek, hogy pontosan két látható épület legyen (pl. 2,1,4,3)—a 2 az első, majd a 4 a második, mert a 1-et takarja.
+A bemenet egy 16 hosszú tuple vagy tömb 4×4‑es formában, sorrendben: először felső clue-ok balról jobbra, aztán jobb oldali clue-ok felülről lefelé, alulról balra, majd bal oldali clue‑ok lefelülről felfelé.
+A feladat, hogy ezek alapján egyértelműen meghatározd a 4×4‑es mátrixot.
+
+Több részlet:
+Minden sor/oszlop egy permutáció 1‑től 4‑ig.
+Clue-ok az adott irányból: ha 0, akkor nincs megszorítás; ha van szám, akkor annyi épület legyen látható.
+
+Példa egy sorra:
+Sor: [1,3,4,2]
+Clue balról: meglátjuk 1,3,4 → összesen 3 épület (a 2‑t már eltakarta a 4).
+Clue jobbról: 2,4 → 2 épület látható.
+
+Lépések a megoldáshoz:
+A clue‑k olvasása a 16 elemű inputból (felül, jobbról, alulról, balról).
+Minden lehetséges 4‑elemű permutáció (24 db) generálása sorokra.
+Visszaillesztés és ellenőrzés: sorokra és oszlopokra is teljesülniük kell a clue‑feltételeknek.
+Ha minden sor/oszlop megfelel, készen vagy.
+ */
