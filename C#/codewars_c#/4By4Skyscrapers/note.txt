@@ -103,4 +103,17 @@ Ha minden sor/oszlop megfelel, készen vagy.
  3 {2, 1, 3, 4},1
     3  2  2  1
 
+A 16 elemű byte array (ez a puzzle feltétele) párok az adott sorokhoz és oszlopokhoz
+Sorok
+1.  15, 4
+2.  14, 5
+3.  13, 6
+4.  12, 7
+
+Oszlop
+1.  0, 11
+2.  1, 10
+3.  2, 9
+4.  3, 8
+
  */
