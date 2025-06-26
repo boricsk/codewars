@@ -7,9 +7,6 @@ namespace codewars_c_
         {
             Console.WriteLine("Hello, World!");
         }
-        public static double SumArray(double[] array)
-        {
-            return array.Sum();
-        }
+        public static double SumArray(double[] array) => array.Sum();        
     }
 }

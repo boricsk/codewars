@@ -91,4 +91,16 @@ A clue‑k olvasása a 16 elemű inputból (felül, jobbról, alulról, balról)
 Minden lehetséges 4‑elemű permutáció (24 db) generálása sorokra.
 Visszaillesztés és ellenőrzés: sorokra és oszlopokra is teljesülniük kell a clue‑feltételeknek.
 Ha minden sor/oszlop megfelel, készen vagy.
+
+            var clues = new[]{ 2, 2, 1, 3,
+                               2, 2, 3, 1,
+                               1, 2, 2, 3,
+                               3, 2, 1, 3};
+    2  2  1  3
+ 3 {1, 3, 4, 2},2
+ 1 {4, 2, 1, 3},2
+ 2 {3, 4, 2, 1},3
+ 3 {2, 1, 3, 4},1
+    3  2  2  1
+
  */
