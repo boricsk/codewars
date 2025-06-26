@@ -116,4 +116,73 @@ Oszlop
 3.  2, 9
 4.  3, 8
 
+A **backtracking** (magyarul gyakran: visszalépéses keresés) egy **problémamegoldó algoritmus**, amelyet olyan helyzetekben használunk, amikor:
+
+* minden lehetséges megoldást (vagy az egyetlen jót) keresünk,
+* a megoldások lépésről lépésre építhetők fel,
+* és egy adott lépés után **korán eldönthető**, hogy az oda vezető út **nem vezet jó megoldáshoz**.
+
+---
+
+## 🔁 Hogyan működik a backtracking?
+
+A backtracking egy **rekurzív fa bejárás**:
+
+1. **Próbálj ki egy lépést** (egy döntést vagy választást).
+2. **Ha a döntés érvényes**, akkor lépj tovább a következő szintre.
+3. Ha **a teljes megoldás kész**, akkor térj vissza vele.
+4. Ha **valahol kiderül, hogy nem jó az irány**, akkor:
+
+   * **"backtrack"**: visszalépsz, és kipróbálsz másik lehetőséget az előző szinten.
+
+Ez gyakorlatilag egy **mélységi keresés (DFS)**, amely kihagyja azokat az ágakat, ahol már időben látjuk, hogy nem lehet jó megoldás.
+
+---
+
+## 🧠 Egyszerű példa: Sudoku / N-Queens / Skyscraper
+
+Mondjuk, van 3 üres hely egy sorban, és csak 1–3 közötti számokat tehetsz be, úgy hogy ne ismétlődjenek.
+
+```text
+[_, _, _]   →  próbáld ki: [1, 2, 3]
+```
+
+A backtracking így működik:
+
+* Helyezd be az első helyre 1-et.
+* Menj a következő helyre, és próbálj ki 1-et → de már szerepel → sikertelen.
+* Próbáld a 2-t → oké.
+* Következő hely → próbálj 1-et → már szerepel → nem jó → próbáld 3-at → oké.
+* Kész megoldás: \[1, 2, 3]
+
+---
+
+## ⚙️ A skyscraper esetben
+
+A te feladatodban:
+
+* 4 sort kell kiválasztanod (mindegyikhez több lehetőség van).
+* Lépésről lépésre építed a rácsot (row-by-row).
+* Minden lépés után megnézed, hogy:
+
+  * **nincs-e ütközés oszlopban** (pl. ugyanaz a szám kétszer),
+  * és végül, ha teljes a rács: **az oszlopclue is stimmel-e**.
+
+Ha nem stimmel, **backtrackelsz**: visszalépsz és új sorjelöltet próbálsz a korábbi szintre.
+
+---
+
+## 🧩 Mikor jó a backtracking?
+
+✔️ Akkor jó, ha:
+
+* a megoldás több lépésből épül fel,
+* a hibás út már útközben kiszűrhető,
+* a lehetséges utak száma nem túl nagy (vagy jól szűrhető),
+* vagy csak **egy megoldás** is elég.
+
+---
+
+Ha szeretnéd, meg tudom mutatni gráfon, hogyan néz ki a backtracking keresés vagy animált példán átvezetlek!
+
  */

@@ -1,0 +1,17 @@
+﻿Írj egy függvényt, amely a Boggle táblán a Boggle szabályai szerint meghatározza, hogy egy karakterlánc érvényes tipp-e. 
+A Boggle tábla egy kétdimenziós tömb, amely egyedi karakterekből áll, pl.:
+
+[ ["I", "L", "A", "W"],
+["B", "N", "G", "E"],
+["I", "U", "A", "O"],
+["A", "S", "R", "L"] ]
+
+Az érvényes tippek olyan karakterláncok, amelyek szomszédos cellák (vízszintes, függőleges vagy átlós) összekapcsolásával hozhatók létre anélkül, 
+hogy a korábban használt cellákat újra felhasználnánk.
+Például a fenti táblán a "BINGO", a "LINGO" és az "ILNBIA" mind érvényes tipp lenne, míg a "BUNGIE", a "BINS" és a "SINUS" nem.
+
+A függvényednek két argumentumot kell fogadnia (egy kétdimenziós tömböt és egy karakterláncot), és igaz vagy hamis értéket kell 
+visszaadnia attól függően, hogy a karakterlánc megtalálható-e a tömbben a Boggle szabályai szerint.
+
+A tesztesetek különböző tömb- és karakterláncméreteket biztosítanak (négyzet alakú tömbök legfeljebb 150x150-ig, karakterláncok 
+legfeljebb 150 nagybetűig). Nem kell ellenőrizni, hogy a karakterlánc valódi szó-e vagy sem, csak azt, hogy érvényes találat-e.
